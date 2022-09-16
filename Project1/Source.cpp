@@ -1,10 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <vector>
 
 using namespace std;
+
+#ifdef _DEBUG
+#define LOG(x) cout << x << endl;
+#else
+#define LOG(x)
+#endif
 
 struct STUDENT_DATA {
 	string firstName;
@@ -30,6 +35,9 @@ int main() {
 			student.lastName = last;
 
 			studentData.push_back(student);
+
+			LOG(student.firstName);
+			LOG(student.lastName);
 		}
 
 		fin.close();
